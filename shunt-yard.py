@@ -73,7 +73,7 @@ def gen_rpn(tokens):
 
 def syntax_checker(tokens):
   # two consecutive numbers with no op in between
-  # two consecutive operators with no op in between
+  # two consecutive operators
   # Brackets checker close and open needs to match () (()) is okay but (() is not
   brackets = deque()
   op = "/+*-^"
