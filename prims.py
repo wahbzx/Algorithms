@@ -1,5 +1,6 @@
 from math import inf
 import heapq
+from os import stat
 
 # Example weighted graph
 adj = { 0: [1,2,3],
@@ -12,12 +13,14 @@ weight_matrix = [[inf,3,5,4],
                  [5,4,inf,2],
                  [4,inf,2,inf]]
 
+# Classical Prim's - better when graph is dense
 def prims(start):
   # Initialise tree with starting node
   weight = {}
   tree = set()
   fringe = set()
   tree.add(start)
+  print("Adding node: ", start)
   # Add all the connected nodes to the tree to the fringe
   for i in adj[start]:
     fringe.add(i)
@@ -47,8 +50,47 @@ def prims(start):
   print("Done")
   print(tree)
 
-# Prim's using a priority queue - heapq is the priority queue implementation in python
-def prims_pq(start):
-  pass
+def heappop(pq):
+  # Heapq orders the PQ by the key rather than value - so switch them around
+  new_pq = [(b,a) for (a,b) in list(pq.items())]
+  # heapify orders new_pq in order to make it a priority queue
+  heapq.heapify(new_pq)
+  # Returns the Node with the smallest val
+  (val,key) = heapq.heappop(new_pq)
+  return (key,val)
 
-# Example MST from 0: prims(0)
+# Prim's using a priority queue - Better when graph is sparse
+def prims_pq(start):
+  # The priority queue will contain key val pairs
+  # Key - fringe node
+  # Val - cost to travel to it from the tree
+  pq = {}
+  tree = set()
+  # Initialise the PQ where all the costs are infinity
+  for x in adj:
+    pq[x] = inf
+  pq = [(b,a) for (a,b) in list(pq.items())] 
+  heapq.heapify(pq)
+  pq = dict([(b,a) for (a,b) in pq])
+  # cost to travel from start to start is 0
+  pq[start] = 0
+  while len(pq) > 0:
+    # Returns the node with the smallest cost to travel to from tree
+    (f,v) = heappop(pq)
+    # Remove this node from the PQ and adds it to the tree
+    pq.pop(f)
+    tree.add(f)
+    print("Adding node: ",f)
+    # Checks adjacent fringe nodes of the newly added node
+    # If they are not in already in the tree and the cost is cheaper from the newly added node
+    # Then before, then it will update the cost to travel to the fringe node
+    for y in adj[f]:
+      if y not in tree and weight_matrix[f][y] < pq[y]:
+        pq[y] = weight_matrix[f][y]
+  print("Done")
+  print(tree)
+
+
+# Example MST from 0: 
+# prims(0)
+# prims_pq(0)
