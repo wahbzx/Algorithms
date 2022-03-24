@@ -5,7 +5,7 @@
   * [Linked Lists](https://github.com/wahbzx/Algorithms/blob/main/Data%20Structures/linkedlist.py)
   * [Queue](https://github.com/wahbzx/Algorithms/blob/main/Data%20Structures/queue.py)
   * [Stack](https://github.com/wahbzx/Algorithms/blob/main/Data%20Structures/stack.py)
-  * TODO - priority queue, minmax heaps
+  * TODO - priority queue, minmax heaps, AVL and Red Black Trees
 #### Graph Traversal
   * [BFS and DFS](https://github.com/wahbzx/Algorithms/tree/main/Graph%20Traversal)
 #### MST finding Algorithms
