@@ -2,7 +2,10 @@
 
 #### Data Structures
   * [Binary Search Tree](https://github.com/wahbzx/Algorithms/blob/main/Data%20Structures/bst.py)
-  * TODO - linked lists, queue, stack, priority queue, minmax heaps
+  * [Linked Lists](https://github.com/wahbzx/Algorithms/blob/main/Data%20Structures/linkedlist.py)
+  * [Queue](https://github.com/wahbzx/Algorithms/blob/main/Data%20Structures/queue.py)
+  * [Stack](https://github.com/wahbzx/Algorithms/blob/main/Data%20Structures/stack.py)
+  * TODO - priority queue, minmax heaps
 #### Graph Traversal
   * [BFS and DFS](https://github.com/wahbzx/Algorithms/tree/main/Graph%20Traversal)
 #### MST finding Algorithms
